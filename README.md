@@ -1,2 +1,7 @@
 # ibm-cbd
-Boilerplates for CbD experience
+
+Boilerplates for IBM CbD experience
+
+## script.js
+
+Geofencing helper for Code section.
