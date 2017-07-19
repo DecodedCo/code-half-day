@@ -1,7 +1,7 @@
 # ibm-cbd
 
-Boilerplates for IBM CbD experience
+Notebooks for IBM CbD Data experience
 
-## script.js
+## stock-prices.ipynb
 
-Geofencing helper for Code section.
+Jupyter notebook for pulling stock data for D3
