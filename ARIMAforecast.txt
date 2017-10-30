@@ -1,0 +1,29 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from statsmodels.tsa.arima_model import ARIMA
+
+df = pd.read_csv('hat-sales.csv', index_col = ['month'], parse_dates = ['month'])
+
+def ARIMAforecast(series, params = [6,1, 2], steps = 20):   
+    
+    X = series                                                     #take the data
+    log_X = np.log(X)                                              #log the data
+    model = ARIMA(log_X, order=(params[0], params[1], params[2]))  #create ARIMA model
+    results_ARIMA = model.fit(disp =1)                             #fit ARIMA model
+    forecast = results_ARIMA.forecast(steps = steps)[0]            #forecast 'steps' number of steps
+    unlog_forecast = np.exp(forecast)                              #"unlog" the forecast
+    full_predict = np.append(X,unlog_forecast)                     #append it to the end of the column
+    return full_predict.tolist()                                   #return as list
+
+
+def plot_ARIMA(series, test_points, forecast_points, p, d, q = 2):
+    predictions = ARIMAforecast(series[:-test_points], params = [p,d,q], steps = forecast_points)
+    _,ax = plt.subplots()
+    _,_,_ = ax.plot(predictions, color = "red"), ax.plot(series.values, color = "blue"), plt.show()
+    
+from ipywidgets import interact, interactive, fixed, interact_manual
+def custom_slider_ARIMA(series):    
+    interact(plot_ARIMA, series=fixed(series), test_points=(1,10,1), forecast_points=(1,36,1), p=(1,9,1), d=(1,2,1), q=(0,4,1))
+
+custom_slider_ARIMA(df.hats_sold)    
