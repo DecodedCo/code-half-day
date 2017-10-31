@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.tsa.arima_model import ARIMA
 
-df = pd.read_csv('hat-sales.csv', index_col = ['month'], parse_dates = ['month'])
+df = pd.read_csv('/resources/data/hat-sales.csv', index_col = ['month'], parse_dates = ['month'])
 
 def ARIMAforecast(series, params = [6,1, 2], steps = 20):   
     
