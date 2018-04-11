@@ -1,7 +1,3 @@
-# ibm-cbd
+# Code_in a half day
 
-Boilerplates for IBM CbD experience
-
-## script.js
-
-Geofencing helper for Code section.
+Boilerplate for the code experience
