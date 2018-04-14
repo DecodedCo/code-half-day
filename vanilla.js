@@ -23,8 +23,8 @@ function success(position){
 	var userLon = position.coords.longitude;
 
 	// Where is the target location?
-  var targetLat = 40.6917017;
-	var targetLon = -74.8240509;
+  	var targetLat = 0;
+	var targetLon = 0;
 
 	// Calculate the distance away from the target
 
@@ -32,6 +32,14 @@ function success(position){
 
 	// Define the radius for application action
 	var radius = 0; // in miles
+	
+	if(){
+	   // Show the form
+	   // Add your own message
+   	} else {
+	   // Hide the form
+	   // Add your own message
+	}   
 
 } // END success
 
