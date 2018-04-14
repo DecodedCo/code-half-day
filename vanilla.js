@@ -1,5 +1,5 @@
 // Hide form to disallow checkin
-var el = document.getElementById('form');
+var el = document.getElementByTagName('form');
 el.style.visibility = 'hidden';
 
 // Update the message
